@@ -30,6 +30,16 @@
   }
   function refresh() {
     document.querySelectorAll('[data-trail-count]').forEach(function (n) { n.textContent = String(trail.order.length); });
+    document.querySelectorAll('[data-trail-mark]').forEach(function (mark) {
+      var id = mark.dataset.trailMark;
+      var opened = trail.order.indexOf(id) !== -1;
+      var complete = trail.complete.indexOf(id) !== -1;
+      var title = mark.dataset.recordTitle || mark.getAttribute('aria-label').replace(/^Open /, '').replace(/, (unopened|opened|complete)$/, '');
+      mark.dataset.recordTitle = title;
+      mark.classList.toggle('visited', opened);
+      mark.classList.toggle('complete', complete);
+      mark.setAttribute('aria-label', 'Open ' + title + ', ' + (complete ? 'complete' : opened ? 'opened' : 'unopened'));
+    });
     document.querySelectorAll('[data-record-row]').forEach(function (n) {
       n.classList.toggle('visited', trail.order.indexOf(n.dataset.recordRow) !== -1);
     });
@@ -117,6 +127,7 @@
       setMotion(reduced); write(MOTION, reduced ? 'reduced' : 'default');
     });
   });
+  window.addEventListener('pageshow', function () { trail = load(); refresh(); });
   window.addEventListener('storage', function (event) {
     if (event.key === KEY || event.key === null) { trail = load(); refresh(); }
     if (event.key === MOTION || event.key === null) setMotion(read(MOTION) === 'reduced');
