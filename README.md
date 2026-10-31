@@ -32,7 +32,7 @@ A human/AI project by Wakka. Still being written.
 
 ## Navigator
 
-The Android app is still being edited.
+The Public Android app is still being edited.
 
 ## Feedback
 
