@@ -1,0 +1,30 @@
+name: Report a problem
+description: Typos, broken links, display problems, or possible contradictions.
+title: "[Report] "
+body:
+  - type: dropdown
+    id: record
+    attributes:
+      label: Where did you find it?
+      options:
+        - Website / README
+        - The Bound
+        - Drydock 7
+        - Hadal Terminus
+        - Effervesent, the Bulwark
+        - Shared Rest
+        - Reading trail / other
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: What did you notice?
+      description: Include the record, line, link, or control.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Device and browser
+      description: Optional. Useful for display problems.

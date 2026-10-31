@@ -1,0 +1,7 @@
+PRIVATE_SIGNING/
+*PRIVATE_CHECKPOINT*
+*.jks
+*.keystore
+*.apk
+.DS_Store
+Thumbs.db
