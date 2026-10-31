@@ -134,4 +134,30 @@
     window.addEventListener('resize', updateProgress);
     updateProgress();
   }
+  var artDialog = document.getElementById('art-dialog');
+  var artOpener = null;
+  document.querySelectorAll('[data-open-art]').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      if (!artDialog || typeof artDialog.showModal !== 'function') return;
+      event.preventDefault();
+      artOpener = link;
+      var image = link.querySelector('img');
+      var full = document.getElementById('art-full-image');
+      full.src = link.href;
+      full.alt = image ? image.alt : '';
+      document.getElementById('art-title').textContent = link.dataset.artTitle || 'Illustration';
+      document.getElementById('art-original').href = link.href;
+      artDialog.showModal();
+    });
+  });
+  function closeArt() { if (artDialog && artDialog.open) artDialog.close(); }
+  document.querySelectorAll('[data-close-art]').forEach(function (button) { button.addEventListener('click', closeArt); });
+  if (artDialog) {
+    artDialog.addEventListener('close', function () { if (artOpener && artOpener.isConnected) artOpener.focus(); });
+    artDialog.addEventListener('click', function (event) {
+      if (event.target !== artDialog) return;
+      var rect = artDialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeArt();
+    });
+  }
 }());
