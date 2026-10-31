@@ -20,20 +20,14 @@ Logs, incidents, and observations. Five public records.
 
 ## About
 
-RIPPLE started with me asking AI for Mass Effect-style codex entries to listen to while mowing. It grew into a fictional universe told through incident reports, correspondence, and stories. Cosmic horror, weird humor, and occasional kindness.
-
-Eventually, that universe was scattered across old chats and files. I wanted RIPPLE back. So, with AI’s help, I dug through the material, recovered what I could, and built an archive I could actually navigate and keep writing in. The original text, corrections, and gaps stayed part of the record.
-
-This is a small public selection from that ongoing project.
-
 A human/AI project by Wakka. Still being written.
 
 [Project details](ABOUT.md).
 
 ## Navigator
 
-The Public Android app is still being edited.
+The Android app is still being edited.
 
 ## Feedback
 
-[Report a problem](https://github.com/Wakkatobakka/ripple/issues/new/choose). Include the record and what you noticed. Meant for bugs. Not expansion.
+[Report a problem](https://github.com/Wakkatobakka/ripple/issues/new/choose). Include the record and what you noticed.
